@@ -1,17 +1,24 @@
 {% extends "base.html" %}
 {% load static %}
 {% block page_content %}
-<h1 style='color: #1E2640;'>Projects</h1>
+<style>
+.btn-default
+{
+  background-color: #922C40;
+}
+</style>
+
+<h1 style='color: #1E2640; padding-top: 16px;'>Projects</h1>
 <div class="row">
 {% for project in projects %}
     <div class="col-md-4">
-        <div class="card mb-2">
-            <img class="card-img-top" src="{% static project.image %}">
+        <div class="card mb-2" style="background-image: linear-gradient(to bottom, rgba(220,150,80,1) 0%, rgba(243,233,191,1) 57%, rgba(243,233,191,1) 100%);">
+            <img class="card-img-top" src="{% static project.image %}" width="100%">
             <div class="card-body">
                 <h5 class="card-title">{{ project.title }}</h5>
                 <p class="card-text">{{ project.description }}</p>
                 <a href="{% url 'project_detail' project.pk %}"
-                   class="btn btn-primary">
+                   class="btn btn-default" style="color: #1E2640;">
                     Read More
                 </a>
             </div>
